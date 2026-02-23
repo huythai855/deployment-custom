@@ -20,13 +20,13 @@ spec:
         {{- range .Values.command }}
           - {{ . | quote }}
         {{- end }}
-        {{- endif }}
+        {{- end }}
         {{- if .Values.arguments }}
         args:
         {{- range .Values.arguments }}
           - {{ . | quote }}
         {{- end }}
-        {{- endif }}
+        {{- end }}
         ports:
           - containerPort: {{ .Values.containerPort }}
             name: http
@@ -39,7 +39,7 @@ spec:
           - name: {{ $key }}
             value: {{ $value | quote }}
         {{- end }}
-        {{- endif }}
+        {{- end }}
         resources:
           requests:
             cpu: {{ .Values.cpuRequest | quote }}
@@ -49,4 +49,4 @@ spec:
             memory: "{{ .Values.memoryLimit }}Gi"
             {{- if and .Values.gpuLimit (gt (int .Values.gpuLimit) 0) }}
             nvidia.com/gpu: {{ .Values.gpuLimit | quote }}
-            {{- endif }}
+            {{- end }}
