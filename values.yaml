@@ -1,0 +1,31 @@
+# Values for deployment-custom
+nameOverride: ""
+fullnameOverride: ""
+
+pvName: "pv-example"
+pvcName: "pvc-example"
+serviceName: "service-example"
+namespace: "default"
+deploymentId: "12345"
+username: "testuser"
+storageSize: "5Gi"
+storageClass: "juicefs-sc-static"
+volumeHandle: "jfs-volume"
+secretName: "juicefs-csi-secret"
+
+appLabel: "inference"
+image: "nginx"
+command: []
+arguments: []
+containerPort: 8080
+mountPath: "/models"
+
+envs: {}
+# envs:
+#   KEY: value
+
+cpuRequest: "1"
+cpuLimit: "2"
+memoryRequest: "2" # in Gi
+memoryLimit: "4" # in Gi
+gpuLimit: 0
